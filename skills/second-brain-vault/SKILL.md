@@ -115,11 +115,11 @@ Preferred `status` values:
 
 - Use Obsidian wikilinks: `[[note-name]]` or `[[note-name|Readable Label]]`.
 - Add links where a future reader would naturally continue.
-- Keep `HOME.md` and relevant MOCs useful, but do not turn them into dumping grounds.
+- Keep `홈.md` and relevant MOCs useful, but do not turn them into dumping grounds.
 - Prefer meaningful connections over tag spam.
 - When adding an important note, connect it from at least one of:
-  - `HOME.md`
-  - `08-maps/MOC-second-brain.md`
+  - `홈.md`
+  - `08-maps/세컨드 브레인 지도.md`
   - a project note
   - a daily note
 

@@ -98,7 +98,7 @@ When adding or editing notes:
 1. Inspect existing notes before creating new structure.
 2. Reuse templates from `90-templates/` when appropriate.
 3. Add links to related notes in both the body and frontmatter tags when useful.
-4. Update `HOME.md` or an MOC only when the change should be discoverable from the main dashboard.
+4. Update `홈.md` or an MOC only when the change should be discoverable from the main dashboard.
 5. Put rough, unclassified material in `00-inbox/`.
 6. Put long-term, organized material in the correct numbered folder.
 

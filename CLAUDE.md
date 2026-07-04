@@ -16,7 +16,7 @@ Read `AGENTS.md` first and follow it as the source of truth for vault operations
 
 ## Quick Paths
 
-- Main dashboard: `HOME.md`
+- Main dashboard: `홈.md`
 - Daily notes: `01-daily/`
 - Dev notes: `02-dev-notes/`
 - Projects: `03-projects/`
@@ -46,4 +46,4 @@ After editing:
 - Check Git status.
 - Validate `.base` files as YAML if changed.
 - Validate `.canvas` files as JSON if changed.
-- Make sure important new notes are discoverable from `HOME.md`, a relevant MOC, or a linked project note.
+- Make sure important new notes are discoverable from `홈.md`, a relevant MOC, or a linked project note.

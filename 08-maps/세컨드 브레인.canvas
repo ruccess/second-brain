@@ -3,7 +3,7 @@
     {
       "id": "home",
       "type": "file",
-      "file": "HOME.md",
+      "file": "홈.md",
       "x": 0,
       "y": 0,
       "width": 420,
@@ -21,7 +21,7 @@
     {
       "id": "project",
       "type": "file",
-      "file": "03-projects/second-brain.md",
+      "file": "03-projects/세컨드 브레인.md",
       "x": 520,
       "y": 40,
       "width": 380,
@@ -30,7 +30,7 @@
     {
       "id": "moc",
       "type": "file",
-      "file": "08-maps/MOC-second-brain.md",
+      "file": "08-maps/세컨드 브레인 지도.md",
       "x": 0,
       "y": 400,
       "width": 420,
@@ -39,7 +39,7 @@
     {
       "id": "decision",
       "type": "file",
-      "file": "07-decisions/ADR-2026-07-04-git-managed-markdown.md",
+      "file": "07-decisions/의사결정 2026-07-04 깃으로 마크다운 관리.md",
       "x": 520,
       "y": 400,
       "width": 380,
@@ -48,7 +48,7 @@
     {
       "id": "note",
       "type": "file",
-      "file": "02-dev-notes/git-managed-markdown.md",
+      "file": "02-dev-notes/깃으로 마크다운 관리.md",
       "x": -520,
       "y": 400,
       "width": 380,
@@ -100,4 +100,3 @@
     }
   ]
 }
-
