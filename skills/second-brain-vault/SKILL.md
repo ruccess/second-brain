@@ -39,7 +39,9 @@ Use this skill to work on this vault as a durable Markdown knowledge system, not
 
 ## Note Creation
 
-Use existing templates from `90-templates/` when they fit. Use lower-kebab-case filenames for durable notes.
+Use existing templates from `90-templates/` when they fit. For graph-visible knowledge notes, use Korean filenames and Korean H1 titles.
+
+Obsidian graph labels come from filenames. Do not create new durable notes with English slugs unless the user explicitly asks. Use natural Korean filenames with spaces when that makes the graph easier to read.
 
 Daily note:
 
@@ -50,20 +52,27 @@ Daily note:
 Development note:
 
 ```text
-02-dev-notes/lower-kebab-case.md
+02-dev-notes/리액트 상태 설계.md
 ```
 
 Project note:
 
 ```text
-03-projects/lower-kebab-case.md
+03-projects/세컨드 브레인.md
 ```
 
 Decision note:
 
 ```text
-07-decisions/ADR-YYYY-MM-DD-short-topic.md
+07-decisions/의사결정 2026-07-04 깃으로 마크다운 관리.md
 ```
+
+Exceptions:
+
+- Date notes such as `01-daily/2026-07-04.md`.
+- Agent/system files such as `README.md`, `AGENTS.md`, `CLAUDE.md`, and `SKILL.md`.
+- Machine-readable support files such as `.base`, `.canvas`, and `.json`.
+- Code identifiers, commands, package names, and official product names inside note bodies.
 
 ## Frontmatter
 
@@ -142,7 +151,8 @@ ruby -rjson -e 'ARGV.each { |f| JSON.parse(File.read(f)) }' 08-maps/*.canvas
 
 ## Writing Style
 
-- Use Korean for personal notes and user-facing notes unless the existing note is English or technical naming is clearer in English.
+- Use Korean for graph-visible filenames and H1 titles.
+- Use Korean for personal notes and user-facing notes unless preserving a direct technical term is necessary.
 - Keep agent-facing instructions concise and in English unless Korean is explicitly requested.
 - Preserve the user's personal wording in reflections and daily notes.
 - Summarize raw logs into useful notes instead of pasting long dumps.
@@ -152,6 +162,7 @@ ruby -rjson -e 'ARGV.each { |f| JSON.parse(File.read(f)) }' 08-maps/*.canvas
 - Always check status before and after edits.
 - Never discard or rewrite user changes.
 - Keep plugin and theme code ignored.
+- Quote paths in shell commands when Korean filenames or spaces are involved.
 - If the user asks for a commit, stage only intended files and use a plain message.
 
 ## Done Criteria
@@ -162,4 +173,3 @@ Before finishing:
 2. Validate changed `.base` and `.canvas` files.
 3. Confirm important new notes are discoverable.
 4. Tell the user what changed and whether anything remains uncommitted.
-

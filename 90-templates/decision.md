@@ -7,7 +7,7 @@ tags:
   - adr
 ---
 
-# ADR-<% tp.date.now("YYYY-MM-DD") %>-<% tp.file.title %>
+# <% tp.file.title %>
 
 ## Context
 
@@ -24,4 +24,3 @@ tags:
 ## Links
 
 -
-

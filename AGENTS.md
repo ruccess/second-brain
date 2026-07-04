@@ -35,11 +35,26 @@ This repository is a Git-managed Markdown second brain. The user will usually re
 
 - Use YAML frontmatter for structured notes.
 - Use Obsidian wikilinks: `[[note-name]]` or `[[note-name|Readable Label]]`.
-- Prefer lower-kebab-case filenames for durable notes.
+- For graph-visible knowledge notes, the filename and H1 title must be Korean.
+- Use natural Korean filenames with spaces when that makes the graph easier to read.
 - Use ISO dates: `YYYY-MM-DD`.
 - Keep tags lowercase and purposeful.
 - Use Markdown checkboxes for tasks.
 - Use the Tasks plugin due-date style when dates matter: `📅 YYYY-MM-DD`.
+
+Examples:
+
+- Good: `02-dev-notes/리액트 상태 설계.md`
+- Good: `03-projects/세컨드 브레인.md`
+- Good: `07-decisions/의사결정 2026-07-04 깃으로 마크다운 관리.md`
+- Avoid for graph-visible notes: `git-managed-markdown.md`, `react-state-design.md`
+
+Exceptions:
+
+- Date notes such as `01-daily/2026-07-04.md`.
+- Agent/system files such as `README.md`, `AGENTS.md`, `CLAUDE.md`, and `SKILL.md`.
+- Machine-readable support files such as `.base`, `.canvas`, `.json`, and ignored plugin/theme files.
+- Code identifiers, commands, package names, and official product names inside note bodies.
 
 ## Common Frontmatter
 
@@ -120,7 +135,7 @@ Use `07-decisions/` for ADR-style records.
 Filename pattern:
 
 ```text
-ADR-YYYY-MM-DD-short-topic.md
+의사결정 YYYY-MM-DD 한국어 주제.md
 ```
 
 Decision notes should include:
@@ -172,5 +187,6 @@ Example:
 - Keep notes concise and reusable.
 - Prefer clear headings over heavy formatting.
 - Preserve the user's language when editing personal notes.
-- Use Korean for user-facing personal notes unless the existing note is English or technical naming is clearer in English.
+- Use Korean for graph-visible filenames and H1 titles.
+- Use Korean for user-facing personal notes unless preserving a direct technical term is necessary.
 - Do not over-automate the vault; make the next useful thing simple.
