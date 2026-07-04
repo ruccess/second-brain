@@ -4,192 +4,97 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="theme-color" content="#16110f">
+  <meta name="theme-color" content="#f7f4ec">
   <meta property="og:title" content="2026 상반기 회고">
-  <meta property="og:type" content="article">
-  <meta property="og:description" content="기억이 흐릿한 반년을 다시 붙잡아 보고, 하반기에 가져갈 질문과 일을 남긴 기록.">
+  <meta property="og:description" content="2026년 상반기를 돌아본 개인 회고.">
   <title>2026 상반기 회고</title>
   <style>
     :root {
       color-scheme: light;
-      --ink: #181512;
-      --paper: #f4f1e7;
-      --paper-strong: #fffaf0;
-      --line: #d2c4ad;
-      --muted: #746b5f;
-      --dark: #16110f;
-      --dark-2: #211a16;
-      --rust: #c44f32;
-      --teal: #1f7a72;
-      --gold: #b9871b;
-      --green: #557850;
+      --paper: #f7f4ec;
+      --ink: #211d18;
+      --muted: #777066;
+      --line: #d9d0bf;
+      --soft: #fffdf7;
+      --accent: #9f3f2c;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       min-width: 320px;
+      background: var(--paper);
       color: var(--ink);
-      background: var(--dark);
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.72;
+      line-height: 1.78;
       text-rendering: optimizeLegibility;
     }
-    .site {
-      display: grid;
-      grid-template-columns: 340px minmax(0, 1fr);
-      min-height: 100vh;
+    main {
+      width: min(100%, 840px);
+      margin: 0 auto;
+      padding: 72px 24px 88px;
     }
-    .rail {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      padding: 34px 28px;
-      color: var(--paper);
-      background:
-        linear-gradient(180deg, rgba(196, 79, 50, .16), transparent 34%),
-        var(--dark);
-      border-right: 1px solid rgba(244, 241, 231, .16);
+    header {
+      margin-bottom: 48px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
     }
-    .brand {
+    .meta {
       display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      color: rgba(244, 241, 231, .68);
-      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-bottom: 22px;
+      color: var(--muted);
+      font-size: 14px;
       font-weight: 700;
     }
-    .brand span:last-child { color: var(--rust); }
-    .rail-title { margin-top: auto; }
-    .eyebrow {
-      display: block;
-      margin-bottom: 16px;
-      color: rgba(244, 241, 231, .68);
-      font-size: 13px;
-      font-weight: 800;
+    .meta span + span::before {
+      content: "/";
+      margin-right: 16px;
+      color: #b3aa9b;
     }
     h1 {
       margin: 0;
-      max-width: 9ch;
-      font-size: 56px;
-      line-height: 1.03;
+      font-size: clamp(36px, 8vw, 64px);
+      line-height: 1.08;
       letter-spacing: 0;
     }
-    .rail-copy {
-      max-width: 25ch;
+    .intro {
+      max-width: 620px;
       margin: 18px 0 0;
-      color: rgba(244, 241, 231, .72);
-      font-size: 15px;
-      word-break: keep-all;
-    }
-    .signal {
-      width: 100%;
-      max-width: 278px;
-      margin-top: 6px;
-      border: 1px solid rgba(244, 241, 231, .18);
-      border-radius: 8px;
-      background: var(--dark-2);
-    }
-    .signal text {
-      fill: rgba(244, 241, 231, .78);
-      font-size: 12px;
-      font-weight: 700;
-    }
-    .meta-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .meta-list li {
-      min-height: 72px;
-      padding: 12px;
-      border: 1px solid rgba(244, 241, 231, .16);
-      border-radius: 8px;
-      color: rgba(244, 241, 231, .68);
-      font-size: 12px;
-      font-weight: 800;
-    }
-    .meta-list strong {
-      display: block;
-      margin-top: 6px;
-      color: var(--paper);
-      font-size: 16px;
-    }
-    .content {
-      background:
-        linear-gradient(90deg, rgba(24, 21, 18, .05) 1px, transparent 1px),
-        var(--paper);
-      background-size: 28px 28px;
-    }
-    .essay {
-      width: min(100%, 880px);
-      margin: 0 auto;
-      padding: 70px 42px 88px;
-    }
-    .lede {
-      max-width: 760px;
-      margin: 0 0 58px;
-      color: var(--ink);
-      font-family: ui-serif, Georgia, "Times New Roman", serif;
-      font-size: 34px;
-      line-height: 1.42;
-      word-break: keep-all;
-    }
-    .chapter, .actions {
-      display: grid;
-      grid-template-columns: 76px minmax(0, 1fr);
-      column-gap: 28px;
-      padding: 38px 0;
-      border-top: 1px solid var(--line);
-    }
-    .chapter.first { padding-top: 0; border-top: 0; }
-    .chapter-number {
-      color: var(--rust);
-      font-size: 13px;
-      font-weight: 900;
-    }
-    h2 {
-      margin: 0 0 16px;
-      font-size: 23px;
-      line-height: 1.26;
-      letter-spacing: 0;
-    }
-    .chapter p, .actions ul {
-      grid-column: 2;
-    }
-    .chapter p, .actions li {
-      margin: 0;
-      color: #29241f;
+      color: var(--muted);
       font-size: 18px;
+      word-break: keep-all;
+    }
+    article {
+      max-width: 700px;
+    }
+    article p {
+      margin: 0 0 30px;
+      color: var(--ink);
+      font-size: 19px;
       word-break: keep-all;
       overflow-wrap: anywhere;
     }
-    .chapter p + p { margin-top: 18px; }
-    blockquote {
-      grid-column: 2;
-      margin: 26px 0 0;
-      padding: 0 0 0 18px;
-      border-left: 4px solid var(--rust);
-      color: var(--rust);
-      font-family: ui-serif, Georgia, "Times New Roman", serif;
-      font-size: 30px;
-      line-height: 1.34;
-      font-weight: 700;
-      word-break: keep-all;
+    article p:first-child {
+      font-size: 22px;
+      line-height: 1.7;
     }
-    .closing-line {
-      margin-top: 22px !important;
-      padding: 16px 18px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--paper-strong);
-      font-weight: 800;
+    .quiet-mark {
+      width: 72px;
+      height: 3px;
+      margin: 42px 0;
+      background: var(--accent);
+    }
+    .actions {
+      margin-top: 54px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+    h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      line-height: 1.3;
+      letter-spacing: 0;
     }
     .actions ul {
       display: grid;
@@ -199,124 +104,57 @@
       list-style: none;
     }
     .actions li {
-      position: relative;
-      padding: 14px 16px 14px 42px;
+      padding: 14px 16px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: var(--paper-strong);
-      font-weight: 800;
-    }
-    .actions li::before {
-      content: "";
-      position: absolute;
-      left: 16px;
-      top: 22px;
-      width: 12px;
-      height: 12px;
-      border: 2px solid var(--teal);
-      border-radius: 50%;
+      background: var(--soft);
+      color: var(--ink);
+      font-size: 17px;
+      font-weight: 700;
     }
     footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding-top: 34px;
+      max-width: 700px;
+      margin-top: 56px;
+      padding-top: 22px;
       border-top: 1px solid var(--line);
       color: var(--muted);
       font-size: 13px;
       font-weight: 700;
     }
-    @media (max-width: 900px) {
-      .site { grid-template-columns: 1fr; }
-      .rail {
-        position: relative;
-        height: auto;
-        padding: 24px 22px 30px;
-      }
-      .rail-title { margin-top: 20px; }
-      h1 { max-width: none; font-size: 42px; }
-      .signal { max-width: 100%; }
-      .essay { padding: 42px 22px 64px; }
-      .lede { font-size: 25px; }
-      .chapter, .actions {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 30px 0;
-      }
-      .chapter p, .actions ul { grid-column: 1; }
-      blockquote { grid-column: 1; font-size: 25px; }
-      footer { display: grid; }
-    }
-    @media (max-width: 520px) {
-      .meta-list { grid-template-columns: 1fr 1fr; }
-      h1 { font-size: 38px; }
-      .lede { font-size: 22px; }
-      .chapter p, .actions li { font-size: 16px; }
+    @media (max-width: 640px) {
+      main { padding: 42px 20px 64px; }
+      header { margin-bottom: 34px; }
+      .meta { display: grid; gap: 2px; }
+      .meta span + span::before { content: none; }
+      article p { font-size: 17px; }
+      article p:first-child { font-size: 19px; }
     }
   </style>
 </head>
 <body>
-  <main class="site">
-    <aside class="rail" aria-label="retrospective context">
-      <div class="brand"><span>ruccess</span><span>second brain</span></div>
-      <svg class="signal" viewBox="0 0 278 210" role="img" aria-label="상반기 회고의 흐름 지도">
-        <line x1="42" y1="54" x2="104" y2="86" stroke="#c44f32" stroke-width="2" opacity=".9" />
-        <line x1="104" y1="86" x2="178" y2="62" stroke="#1f7a72" stroke-width="2" opacity=".9" />
-        <line x1="104" y1="86" x2="136" y2="145" stroke="#b9871b" stroke-width="2" opacity=".9" />
-        <line x1="136" y1="145" x2="222" y2="134" stroke="#557850" stroke-width="2" opacity=".9" />
-        <circle cx="42" cy="54" r="12" fill="#c44f32" />
-        <circle cx="104" cy="86" r="16" fill="#f4f1e7" />
-        <circle cx="178" cy="62" r="11" fill="#1f7a72" />
-        <circle cx="136" cy="145" r="13" fill="#b9871b" />
-        <circle cx="222" cy="134" r="11" fill="#557850" />
-        <text x="24" y="30">분노</text>
-        <text x="82" y="118">허무</text>
-        <text x="154" y="36">프로젝트</text>
-        <text x="112" y="178">몸</text>
-        <text x="198" y="166">하반기</text>
-      </svg>
-      <div class="rail-title">
-        <span class="eyebrow">2026.01 - 2026.06</span>
-        <h1>2026 상반기 회고</h1>
-        <p class="rail-copy">좋았는지 싫었는지보다, 왜 개발이 재미없어졌는지를 더 오래 들여다본 기록.</p>
-      </div>
-      <ul class="meta-list" aria-label="retrospective metadata">
-        <li>기록<strong>회고</strong></li>
-        <li>상태<strong>draft</strong></li>
-        <li>축<strong>일 / 몸</strong></li>
-        <li>다음<strong>3 actions</strong></li>
-      </ul>
-    </aside>
-    <section class="content">
-      <article class="essay">
-        <p class="lede">회고를 작성하려고 생각을 떠올려 봤을 때 올해는 정말 기억이 잘 나지 않는다. 좋았는지 싫었는지 힘들었는지 뭐 그런 감정이 별로 없다 평온하다면 평온한 반년이었나보다. 중간 중간 치미는 화도 분명히 있었다. 거지같은 요구사항, 병신같은 회사 시스템, 지긋지긋한 반복업무 평온하지 않았나보다. 별로인 반년은 아니었는데 떠올리니 화밖에 안난다. 아마 좋은 점이 적어서 그런 것 같다. 나는 반년간 개발이 재미 없었다.</p>
-        <section class="chapter" id="chapter-2">
-  <span class="chapter-number">02</span>
-  <h2>개발이 재미없어진 자리</h2>
-  <p>AI를 본격적으로 쓰고 나서 나는 성장을 멈춘 느낌이다. 개발을 하면서 허들도 적어지고 구현도 빠른데 뭐가 문젠데? 라고 하면 그게 문제인 것 같다. 나는 어려운 개발을 사랑한 것 같다. 나는 프로젝트를 오래 하게 되면 내 새끼 같고 프로젝트가 귀엽고? 그런데 이제는 내새끼가 없어진 기분이다. 내 것이 아닌 코드에 대한 허무감이 찾아온다. 내가 했는데 왜 그렇게 느낄까? 잘 모르겠으나 아마 어렵지 않아서 내가 잘 모르는 부분이 있어서가 아닐까?</p>
-  <blockquote>나는 어려운 개발을 사랑한 것 같다.</blockquote>
-</section><section class="chapter" id="chapter-3">
-  <span class="chapter-number">03</span>
-  <h2>신나지 않는 새 프로젝트들</h2>
-  <p>허무감은 별개로 새로운 프로젝트들을 진행중이다. 크게 인프라를 관리하는 공간과 서비스 내 프로덕트들을 한번에  관리할 수 있는 작업대다. 이 친구들의 역할은 AI를 활용한 업무를 편하게 해주는 프로젝트들인데... 시스템을 구축하는데 이렇게 신나지 않다니 정말 어려운 일이다. 나는 이 두 프로젝트를 완료할 때 내가 성장하고 있다고 느낄 수 있을까? 그럴거라고 기대하고 있긴 하다. 그랬으면 좋겠다.</p>
-</section><section class="chapter" id="chapter-4">
-  <span class="chapter-number">04</span>
-  <h2>몸으로 버티는 쪽</h2>
-  <p>업무적인 것 외로는 복싱을 시작했고 마운자로와 함께 했다. 마운자로는 정말 신기하며 인간은 별 수 없는 호르몬의 노예임을 매달 느끼던 걸 매일 느끼게 해줬다. 복싱은 친구들과 함께 하는데 혼자라면 절대 선택하지 않았을 운동인데 역시 함께하니 즐겁다. 앞으로 운동을 평생 해야 한다니 정말 싫다. 무병장수 하려면 해야지 어떡해</p>
-</section><section class="chapter" id="chapter-5">
-  <span class="chapter-number">05</span>
-  <h2>하반기에 남길 질문</h2>
-  <p>반년동안 나의 목표는 복싱을 연말까지 할 것과 내가 만드는 프로젝트를 회사에 내재화 할 것 그리고 인프라를 정리할 것 등이 되시겠다. 이 목표들은 내가 앞으로도 이 직업을 가지고 살아갈 수 있을지에 대한 질문의 답이 될 것 같다. 내년에 엽떡 창업할 수도?</p>
-  <p class="closing-line">이 목표들은 내가 앞으로도 이 직업을 가지고 살아갈 수 있을지에 대한 질문의 답이 될 것 같다.</p>
-</section>
-        <section class="actions" aria-labelledby="actions-heading">
-  <span class="chapter-number">06</span>
-  <h2 id="actions-heading">다음 액션</h2>
-  <ul><li>인프라 정리</li><li>복싱 유지 6개월</li><li>welda-product-workspace 기깔나게 하기</li></ul>
-</section>
-        <footer><span>2026 상반기</span><span>ruccess</span></footer>
-      </article>
-    </section>
+  <main>
+    <header>
+      <div class="meta"><span>ruccess</span><span>2026.01 - 2026.06</span><span>retrospective</span></div>
+      <h1>2026 상반기 회고</h1>
+      <p class="intro">기억이 잘 나지 않는 반년에서, 개발이 재미없어진 이유와 하반기에 남길 질문을 적어둔 글.</p>
+    </header>
+    <article>
+        <p>회고를 작성하려고 생각을 떠올려 봤을 때 올해는 정말 기억이 잘 나지 않는다. 좋았는지 싫었는지 힘들었는지 뭐 그런 감정이 별로 없다 평온하다면 평온한 반년이었나보다. 중간 중간 치미는 화도 분명히 있었다. 거지같은 요구사항, 병신같은 회사 시스템, 지긋지긋한 반복업무 평온하지 않았나보다. 별로인 반년은 아니었는데 떠올리니 화밖에 안난다. 아마 좋은 점이 적어서 그런 것 같다. 나는 반년간 개발이 재미 없었다.</p>
+        <p>AI를 본격적으로 쓰고 나서 나는 성장을 멈춘 느낌이다. 개발을 하면서 허들도 적어지고 구현도 빠른데 뭐가 문젠데? 라고 하면 그게 문제인 것 같다. 나는 어려운 개발을 사랑한 것 같다. 나는 프로젝트를 오래 하게 되면 내 새끼 같고 프로젝트가 귀엽고? 그런데 이제는 내새끼가 없어진 기분이다. 내 것이 아닌 코드에 대한 허무감이 찾아온다. 내가 했는데 왜 그렇게 느낄까? 잘 모르겠으나 아마 어렵지 않아서 내가 잘 모르는 부분이 있어서가 아닐까?</p>
+        <p>허무감은 별개로 새로운 프로젝트들을 진행중이다. 크게 인프라를 관리하는 공간과 서비스 내 프로덕트들을 한번에  관리할 수 있는 작업대다. 이 친구들의 역할은 AI를 활용한 업무를 편하게 해주는 프로젝트들인데... 시스템을 구축하는데 이렇게 신나지 않다니 정말 어려운 일이다. 나는 이 두 프로젝트를 완료할 때 내가 성장하고 있다고 느낄 수 있을까? 그럴거라고 기대하고 있긴 하다. 그랬으면 좋겠다.</p>
+        <p>업무적인 것 외로는 복싱을 시작했고 마운자로와 함께 했다. 마운자로는 정말 신기하며 인간은 별 수 없는 호르몬의 노예임을 매달 느끼던 걸 매일 느끼게 해줬다. 복싱은 친구들과 함께 하는데 혼자라면 절대 선택하지 않았을 운동인데 역시 함께하니 즐겁다. 앞으로 운동을 평생 해야 한다니 정말 싫다. 무병장수 하려면 해야지 어떡해</p>
+        <p>반년동안 나의 목표는 복싱을 연말까지 할 것과 내가 만드는 프로젝트를 회사에 내재화 할 것 그리고 인프라를 정리할 것 등이 되시겠다. 이 목표들은 내가 앞으로도 이 직업을 가지고 살아갈 수 있을지에 대한 질문의 답이 될 것 같다. 내년에 엽떡 창업할 수도?</p>
+      <div class="quiet-mark" aria-hidden="true"></div>
+      <section class="actions" aria-labelledby="actions-title">
+        <h2 id="actions-title">다음 액션</h2>
+        <ul>
+          <li>인프라 정리</li>
+          <li>복싱 유지 6개월</li>
+          <li>welda-product-workspace 기깔나게 하기</li>
+        </ul>
+      </section>
+    </article>
+    <footer>Git-managed Markdown second brain에서 발행됨.</footer>
   </main>
 </body>
 </html>
