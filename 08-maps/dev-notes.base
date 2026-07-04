@@ -1,0 +1,29 @@
+filters:
+  and:
+    - file.inFolder("02-dev-notes")
+properties:
+  status:
+    displayName: Status
+  area:
+    displayName: Area
+  created:
+    displayName: Created
+  tags:
+    displayName: Tags
+views:
+  - type: table
+    name: Dev Notes
+    order:
+      - file.name
+      - status
+      - area
+      - created
+      - tags
+  - type: cards
+    name: Dev Cards
+    order:
+      - file.name
+      - status
+      - area
+      - tags
+

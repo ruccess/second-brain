@@ -1,0 +1,4 @@
+interface:
+  display_name: "Second Brain Vault"
+  short_description: "Maintain this Markdown second brain"
+  default_prompt: "Use $second-brain-vault to organize my notes, tasks, links, and Git-managed Obsidian vault."

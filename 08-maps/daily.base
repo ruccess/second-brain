@@ -1,0 +1,32 @@
+filters:
+  and:
+    - file.inFolder("01-daily")
+properties:
+  date:
+    displayName: Date
+  focus:
+    displayName: Focus
+  mood:
+    displayName: Mood
+  energy:
+    displayName: Energy
+  tags:
+    displayName: Tags
+views:
+  - type: table
+    name: Daily
+    order:
+      - file.name
+      - date
+      - focus
+      - mood
+      - energy
+      - tags
+  - type: cards
+    name: Daily Cards
+    order:
+      - file.name
+      - focus
+      - mood
+      - energy
+

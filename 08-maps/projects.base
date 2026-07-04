@@ -1,0 +1,32 @@
+filters:
+  and:
+    - file.inFolder("03-projects")
+properties:
+  status:
+    displayName: Status
+  area:
+    displayName: Area
+  priority:
+    displayName: Priority
+  created:
+    displayName: Created
+  tags:
+    displayName: Tags
+views:
+  - type: table
+    name: Projects
+    order:
+      - file.name
+      - status
+      - priority
+      - area
+      - created
+      - tags
+  - type: cards
+    name: Project Cards
+    order:
+      - file.name
+      - status
+      - priority
+      - area
+

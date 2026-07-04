@@ -1,0 +1,22 @@
+filters:
+  and:
+    - file.inFolder("07-decisions")
+properties:
+  status:
+    displayName: Status
+  area:
+    displayName: Area
+  created:
+    displayName: Created
+  tags:
+    displayName: Tags
+views:
+  - type: table
+    name: Decisions
+    order:
+      - file.name
+      - status
+      - area
+      - created
+      - tags
+

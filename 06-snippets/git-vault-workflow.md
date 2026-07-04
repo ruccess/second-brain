@@ -1,0 +1,24 @@
+---
+type: snippet
+status: active
+created: 2026-07-04
+tags:
+  - git
+  - terminal
+---
+
+# Git Vault Workflow
+
+```bash
+git status --short
+git add .
+git commit -m "Update second brain"
+git push
+```
+
+## Notes
+
+- Commit after meaningful note sessions.
+- Pull before editing from another desktop.
+- Avoid resolving Git conflicts on mobile when possible.
+

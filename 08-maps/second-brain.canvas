@@ -1,0 +1,103 @@
+{
+  "nodes": [
+    {
+      "id": "home",
+      "type": "file",
+      "file": "HOME.md",
+      "x": 0,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "daily",
+      "type": "file",
+      "file": "01-daily/2026-07-04.md",
+      "x": -520,
+      "y": 40,
+      "width": 360,
+      "height": 260
+    },
+    {
+      "id": "project",
+      "type": "file",
+      "file": "03-projects/second-brain.md",
+      "x": 520,
+      "y": 40,
+      "width": 380,
+      "height": 260
+    },
+    {
+      "id": "moc",
+      "type": "file",
+      "file": "08-maps/MOC-second-brain.md",
+      "x": 0,
+      "y": 400,
+      "width": 420,
+      "height": 280
+    },
+    {
+      "id": "decision",
+      "type": "file",
+      "file": "07-decisions/ADR-2026-07-04-git-managed-markdown.md",
+      "x": 520,
+      "y": 400,
+      "width": 380,
+      "height": 260
+    },
+    {
+      "id": "note",
+      "type": "file",
+      "file": "02-dev-notes/git-managed-markdown.md",
+      "x": -520,
+      "y": 400,
+      "width": 380,
+      "height": 260
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-home-daily",
+      "fromNode": "home",
+      "fromSide": "left",
+      "toNode": "daily",
+      "toSide": "right"
+    },
+    {
+      "id": "edge-home-project",
+      "fromNode": "home",
+      "fromSide": "right",
+      "toNode": "project",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-home-moc",
+      "fromNode": "home",
+      "fromSide": "bottom",
+      "toNode": "moc",
+      "toSide": "top"
+    },
+    {
+      "id": "edge-moc-note",
+      "fromNode": "moc",
+      "fromSide": "left",
+      "toNode": "note",
+      "toSide": "right"
+    },
+    {
+      "id": "edge-moc-decision",
+      "fromNode": "moc",
+      "fromSide": "right",
+      "toNode": "decision",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-project-decision",
+      "fromNode": "project",
+      "fromSide": "bottom",
+      "toNode": "decision",
+      "toSide": "top"
+    }
+  ]
+}
+
