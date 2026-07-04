@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#171613">
+  <title>2026 상반기 회고</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #171613;
+      --muted: #6b6b61;
+      --paper: #f5f3ea;
+      --surface: #fffdf5;
+      --line: #d8d1bf;
+      --accent: #d95d39;
+      --green: #0f766e;
+      --gold: #c18a10;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(23, 22, 19, .035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(23, 22, 19, .035) 1px, transparent 1px),
+        var(--paper);
+      background-size: 34px 34px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.72;
+    }
+    main {
+      width: min(100%, 980px);
+      margin: 0 auto;
+      padding: 56px 22px 72px;
+    }
+    .hero {
+      display: grid;
+      gap: 22px;
+      padding: 36px 0 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 253, 245, .72);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(42px, 8vw, 88px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+    .deck {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .timeline span {
+      min-height: 58px;
+      display: grid;
+      align-content: end;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .timeline span:nth-child(2n) { border-top-color: var(--green); }
+    .timeline span:nth-child(3n) { border-top-color: var(--gold); }
+    article {
+      margin-top: 42px;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 253, 245, .86);
+      box-shadow: 0 20px 60px rgba(23, 22, 19, .08);
+    }
+    article p {
+      margin: 0 0 24px;
+      font-size: 18px;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+    article p:first-child::first-letter {
+      float: left;
+      margin: .1em .14em 0 0;
+      color: var(--accent);
+      font-size: 3.3em;
+      line-height: .9;
+      font-weight: 800;
+    }
+    h2 {
+      margin: 36px 0 14px;
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+    .actions {
+      margin-top: 36px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
+    .actions ul {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .actions li {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8f7ef;
+      font-weight: 700;
+    }
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 680px) {
+      main { padding-top: 28px; }
+      article { padding: 22px; }
+      article p { font-size: 16px; }
+      .timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <span class="eyebrow">2026 H1 Retrospective</span>
+      <h1>2026 상반기 회고</h1>
+      <p class="deck">기억이 흐릿한 반년을 다시 붙잡아 보고, 하반기에 가져갈 질문과 일을 남긴 기록.</p>
+      <div class="timeline" aria-label="2026 first-half months">
+        <span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span>
+      </div>
+    </header>
+    <article>
+      <p>회고를 작성하려고 생각을 떠올려 봤을 때 올해는 정말 기억이 잘 나지 않는다. 좋았는지 싫었는지 힘들었는지 뭐 그런 감정이 별로 없다 평온하다면 평온한 반년이었나보다. 중간 중간 치미는 화도 분명히 있었다. 거지같은 요구사항, 병신같은 회사 시스템, 지긋지긋한 반복업무 평온하지 않았나보다. 별로인 반년은 아니었는데 떠올리니 화밖에 안난다. 아마 좋은 점이 적어서 그런 것 같다. 나는 반년간 개발이 재미 없었다.</p><p>AI를 본격적으로 쓰고 나서 나는 성장을 멈춘 느낌이다. 개발을 하면서 허들도 적어지고 구현도 빠른데 뭐가 문젠데? 라고 하면 그게 문제인 것 같다. 나는 어려운 개발을 사랑한 것 같다. 나는 프로젝트를 오래 하게 되면 내 새끼 같고 프로젝트가 귀엽고? 그런데 이제는 내새끼가 없어진 기분이다. 내 것이 아닌 코드에 대한 허무감이 찾아온다. 내가 했는데 왜 그렇게 느낄까? 잘 모르겠으나 아마 어렵지 않아서 내가 잘 모르는 부분이 있어서가 아닐까?</p><p>허무감은 별개로 새로운 프로젝트들을 진행중이다. 크게 인프라를 관리하는 공간과 서비스 내 프로덕트들을 한번에  관리할 수 있는 작업대다. 이 친구들의 역할은 AI를 활용한 업무를 편하게 해주는 프로젝트들인데... 시스템을 구축하는데 이렇게 신나지 않다니 정말 어려운 일이다. 나는 이 두 프로젝트를 완료할 때 내가 성장하고 있다고 느낄 수 있을까? 그럴거라고 기대하고 있긴 하다. 그랬으면 좋겠다.</p><p>업무적인 것 외로는 복싱을 시작했고 마운자로와 함께 했다. 마운자로는 정말 신기하며 인간은 별 수 없는 호르몬의 노예임을 매달 느끼던 걸 매일 느끼게 해줬다. 복싱은 친구들과 함께 하는데 혼자라면 절대 선택하지 않았을 운동인데 역시 함께하니 즐겁다. 앞으로 운동을 평생 해야 한다니 정말 싫다. 무병장수 하려면 해야지 어떡해</p><p>반년동안 나의 목표는 복싱을 연말까지 할 것과 내가 만드는 프로젝트를 회사에 내재화 할 것 그리고 인프라를 정리할 것 등이 되시겠다. 이 목표들은 내가 앞으로도 이 직업을 가지고 살아갈 수 있을지에 대한 질문의 답이 될 것 같다. 내년에 엽떡 창업할 수도?</p><h2>다음 액션</h2><section class="actions" aria-labelledby="actions-title"><h2 id="actions-title">다음 액션</h2><ul><li>인프라 정리</li><li>복싱 유지 6개월</li><li>welda-product-workspace 기깔나게 하기</li></ul></section>
+    </article>
+    <footer>Published from a Git-managed Markdown second brain.</footer>
+  </main>
+</body>
+</html>
