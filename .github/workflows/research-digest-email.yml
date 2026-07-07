@@ -1,0 +1,125 @@
+name: Research digest email
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - "00-inbox/**"
+      - ".github/workflows/research-digest-email.yml"
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  send-email:
+    if: startsWith(github.head_ref, 'codex/research-digest-') || startsWith(github.head_ref, 'automation/daily-research-digest-')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Find changed digest
+        id: digest
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git fetch --no-tags --depth=1 origin "${{ github.base_ref }}"
+          mapfile -t files < <(git diff --name-only "origin/${{ github.base_ref }}...HEAD" -- "00-inbox/*.md" || true)
+
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          file="$(printf "%s\n" "${files[@]}" | sort | tail -n 1)"
+          echo "found=true" >> "$GITHUB_OUTPUT"
+          echo "path=$file" >> "$GITHUB_OUTPUT"
+
+      - name: Skip when no digest changed
+        if: steps.digest.outputs.found != 'true'
+        run: echo "No research digest file changed; skipping email."
+
+      - name: Send email
+        if: steps.digest.outputs.found == 'true'
+        env:
+          DIGEST_PATH: ${{ steps.digest.outputs.path }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          SMTP_HOST: ${{ secrets.RESEARCH_DIGEST_SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.RESEARCH_DIGEST_SMTP_PORT }}
+          SMTP_USERNAME: ${{ secrets.RESEARCH_DIGEST_SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.RESEARCH_DIGEST_SMTP_PASSWORD }}
+          SMTP_FROM: ${{ secrets.RESEARCH_DIGEST_EMAIL_FROM }}
+          SMTP_TO: ${{ secrets.RESEARCH_DIGEST_EMAIL_TO }}
+          SMTP_SECURITY: ${{ secrets.RESEARCH_DIGEST_SMTP_SECURITY }}
+        run: |
+          python3 <<'PY'
+          import os
+          import smtplib
+          import ssl
+          import sys
+          from email.message import EmailMessage
+          from pathlib import Path
+
+          required = {
+              "RESEARCH_DIGEST_SMTP_HOST": os.environ.get("SMTP_HOST"),
+              "RESEARCH_DIGEST_SMTP_USERNAME": os.environ.get("SMTP_USERNAME"),
+              "RESEARCH_DIGEST_SMTP_PASSWORD": os.environ.get("SMTP_PASSWORD"),
+          }
+          missing = [name for name, value in required.items() if not value]
+          if missing:
+              print("::error::Missing required repository secrets: " + ", ".join(missing))
+              sys.exit(1)
+
+          digest_path = Path(os.environ["DIGEST_PATH"])
+          if not digest_path.exists():
+              print(f"::error::Digest file does not exist: {digest_path}")
+              sys.exit(1)
+
+          smtp_host = os.environ["SMTP_HOST"]
+          smtp_port = int(os.environ.get("SMTP_PORT") or "587")
+          smtp_username = os.environ["SMTP_USERNAME"]
+          smtp_password = os.environ["SMTP_PASSWORD"]
+          smtp_from = os.environ.get("SMTP_FROM") or smtp_username
+          smtp_to = os.environ.get("SMTP_TO") or "ruccess@mcircle.biz"
+          smtp_security = (os.environ.get("SMTP_SECURITY") or "starttls").lower()
+
+          digest = digest_path.read_text(encoding="utf-8")
+          pr_title = os.environ.get("PR_TITLE") or "Research digest"
+          pr_url = os.environ.get("PR_URL") or ""
+
+          body = f"""Research digest PR: {pr_title}
+          PR: {pr_url}
+          File: {digest_path}
+
+          {digest}
+          """
+
+          message = EmailMessage()
+          message["Subject"] = f"[Second Brain] {pr_title}"
+          message["From"] = smtp_from
+          message["To"] = smtp_to
+          message.set_content(body)
+
+          if smtp_security == "ssl":
+              with smtplib.SMTP_SSL(smtp_host, smtp_port, context=ssl.create_default_context()) as smtp:
+                  smtp.login(smtp_username, smtp_password)
+                  smtp.send_message(message)
+          else:
+              with smtplib.SMTP(smtp_host, smtp_port) as smtp:
+                  if smtp_security != "none":
+                      smtp.starttls(context=ssl.create_default_context())
+                  smtp.login(smtp_username, smtp_password)
+                  smtp.send_message(message)
+
+          print(f"Sent research digest email to {smtp_to}")
+          PY
